@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Abid Web - Template Website</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#020617;color:#e5e7eb;line-height:1.5}
+
+/* NAVBAR */
+.navbar{
+  position:sticky;top:0;z-index:999;
+  background:#020617;border-bottom:1px solid #1e293b;
+  padding:18px 40px;display:flex;justify-content:space-between;align-items:center
+}
+.navbar h2{color:#38bdf8;font-size:24px}
+.navbar a{margin-left:20px;color:#cbd5f5;font-weight:600;text-decoration:none;transition:.3s}
+.navbar a:hover{color:#38bdf8}
+
+/* BANNER */
+.banner{
+  width:100%;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  margin-bottom:30px;
+}
+.banner img{
+  width:100%;
+  max-height:300px;
+  object-fit:cover;
+  border-radius:12px;
+  transition: transform .5s;
+}
+.banner img:hover{transform: scale(1.02);}
+@media(max-width:768px){.banner img{max-height:180px;}}
+@media(max-width:480px){.banner img{max-height:140px;}}
+
+/* HERO */
+.hero{text-align:center;padding:60px 20px 40px;}
+.hero h1{font-size:42px;font-weight:700;color:#38bdf8;text-shadow:0 2px 4px rgba(0,0,0,0.5);}
+.hero p{margin-top:10px;color:#94a3b8;font-weight:500;font-size:18px}
+
+/* PROMO STRIP */
+.promo-strip{
+  background:#38bdf8;color:#020617;text-align:center;padding:12px 20px;font-weight:700;border-radius:8px;margin:20px 40px;
+  font-size:16px;
+}
+
+/* FILTER */
+.filter{
+  display:flex;justify-content:center;gap:10px;padding:10px 20px;flex-wrap:wrap;
+  margin-bottom:20px;
+}
+.filter button{
+  background:#020617;border:1px solid #1e293b;color:#cbd5f5;
+  padding:10px 18px;border-radius:20px;cursor:pointer;font-weight:600;transition:.3s
+}
+.filter button.active, .filter button:hover{
+  background:#38bdf8;color:#020617;border-color:#38bdf8
+}
+
+/* CARDS GRID */
+.cards{
+  padding:0 40px 40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+/* CARD */
+.card{
+  background:#0f172a;border:1px solid #1e293b;border-radius:16px;
+  overflow:hidden;position:relative;transition:.4s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(56,189,248,.25);}
+.badge{
+  position:absolute;top:14px;left:14px;
+  background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+  color:#020617;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600
+}
+
+/* PREVIEW IMAGE */
+.preview {
+  height:160px; overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#0f172a,#020617);
+}
+.preview img{
+  width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;
+  transition: transform .5s;
+}
+.card:hover .preview img{transform: scale(1.05);}
+
+/* CONTENT */
+.content{padding:18px}
+.content h3{font-size:20px;font-weight:700;color:#38bdf8;margin-bottom:8px}
+.price{font-size:22px;color:#38bdf8;margin:8px 0;font-weight:700}
+.content ul{list-style:none;margin-top:10px;padding-left:0}
+.content ul li{margin-bottom:6px;color:#cbd5f5;font-size:14px}
+.actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.actions button{
+  flex:1;padding:12px;border-radius:14px;border:none;cursor:pointer;font-weight:700;transition:.3s;color:#020617;background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+}
+.actions button:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(56,189,248,.6);}
+
+/* INFO SECTION */
+.info{
+  padding:40px 20px;
+  background:#0f172a;
+  border-radius:12px;
+  margin:0 40px 40px;
+  text-align:center;
+}
+.info h2{color:#38bdf8;margin-bottom:20px;font-size:28px}
+.info ul{list-style:none;color:#cbd5f5;font-size:16px;padding-left:0}
+.info ul li{margin-bottom:12px}
+
+/* FOOTER */
+footer{border-top:1px solid #1e293b;text-align:center;padding:30px;color:#64748b;font-size:14px}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2>Abid Web</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#template">Template</a>
+    <a href="#kontak">Kontak</a>
+  </div>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+  <img src="images.jpg" alt="Banner Promo">
+</div>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <h1>Template Web Jualan, Portofolio, UMKM</h1>
+  <p>Modern • Responsive • Mudah Diedit • Order via WhatsApp</p>
+</div>
+
+<!-- PROMO STRIP -->
+<div class="promo-strip">
+🔥 Semua order langsung via WhatsApp, proses cepat & aman! 🔥
+</div>
+
+<!-- FILTER -->
+<div class="filter">
+  <button class="active" onclick="filterCard('all', this)">Semua</button>
+  <button onclick="filterCard('jualan', this)">Jualan</button>
+  <button onclick="filterCard('portofolio', this)">Portofolio</button>
+  <button onclick="filterCard('umkm', this)">UMKM</button>
+</div>
+
+<!-- CARDS -->
+<div class="cards" id="template">
+  <div class="card jualan">
+    <div class="badge">Best Seller</div>
+    <div class="preview"><img src="pepek.jpg" alt="Template Jualan"></div>
+    <div class="content">
+      <h3>Template Web Jualan</h3>
+      <div class="price">Rp10.000</div>
+      <ul>
+        <li>Landing page</li>
+        <li>Tombol WhatsApp</li>
+        <li>Animasi halus</li>
+        <li>SEO ready</li>
+      </ul>
+      <div class="actions">
+        <button onclick="orderWA('Template Web Jualan')">ORDER via WA</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card portofolio">
+    <div class="badge">Populer</div>
+    <div class="preview"><img src="image-27-1024x601.jpg" alt="Template Portofolio"></div>
+    <div class="content">
+      <h3>Template Web Portofolio</h3>
+      <div class="price">Rp5.000</div>
+      <ul>
+        <li>Foto profil</li>
+        <li>Project</li>
+        <li>Skill</li>
+        <li>Branding</li>
+      </ul>
+      <div class="actions">
+        <button onclick="orderWA('Template Web Portofolio')">ORDER via WA</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card umkm">
+    <div class="preview"><img src="burit.jpg" alt="Template UMKM"></div>
+    <div class="content">
+      <h3>Template Website UMKM</h3>
+      <div class="price">Rp30.000</div>
+      <ul>
+        <li>Profil usaha</li>
+        <li>Produk</li>
+        <li>Kontak</li>
+        <li>Profesional</li>
+      </ul>
+      <div class="actions">
+        <button onclick="orderWA('Template Website UMKM')">ORDER via WA</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card custom">
+    <div class="content">
+      <h3>Custom Web</h3>
+      <div class="price">Rp??</div>
+      <ul>
+        <li>Bisa request desain sendiri</li>
+        <li>Responsive</li>
+        <li>Animasi halus</li>
+        <li>Fitur sesuai kebutuhan</li>
+      </ul>
+      <div class="actions">
+        <button onclick="orderWA('Custom Web')">ORDER via WA</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INFO SECTION -->
+<div class="info">
+  <h2>Fitur Unggulan Template Kami</h2>
+  <p style="color:#cbd5f5; max-width:800px; margin:0 auto 20px; font-size:16px;">
+    Semua template modern, responsive, dan siap pakai. Order langsung via WhatsApp, mudah diedit, dan fitur lengkap untuk bisnis & portofolio Anda.
+  </p>
+  <ul>
+    <li>Desain modern & responsive untuk semua perangkat</li>
+    <li>Animasi halus dan tampilan profesional</li>
+    <li>Order cepat langsung via WhatsApp</li>
+    <li>Mudah diedit & SEO friendly</li>
+    <li>Dukungan penuh & update gratis</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  © 2026 Abid Web • WhatsApp Order • Dark Modern
+</footer>
+
+<script>
+const nomorWA = "6282381928930";
+
+function orderWA(nama){
+  const pesan = `Halo, saya ingin order: ${nama}`;
+  window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, "_blank");
+}
+
+function filterCard(k, el){
+  document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display = (k=='all'||c.classList.contains(k))?'block':'none';
+  });
+}
+</script>
+
+</body>
+</html>
